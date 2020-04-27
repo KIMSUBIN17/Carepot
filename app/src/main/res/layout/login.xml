@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/artboard1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/artboard1">
+
+    <TextView
+        android:id="@+id/text11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal|top"
+        android:text="@string/text11"
+        android:textColor="@color/color_ff7e7a7a"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_box"
+        app:layout_constraintEnd_toEndOf="@+id/artboard1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image8" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/login_box"
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="62dp"
+        android:background="@drawable/login_box"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text11">
+
+        <CheckBox
+            android:id="@+id/check1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용자"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="45dp"
+            tools:layout_editor_absoluteY="29dp" />
+
+        <CheckBox
+            android:id="@+id/check2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="관리자"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="29dp" />
+
+        <EditText
+            android:id="@+id/idEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="ID를 입력하세요."
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="91dp" />
+
+        <EditText
+            android:id="@+id/pwEditText"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password를 입력하세요."
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="154dp" />
+
+        <Button
+            android:id="@+id/btnJoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JOIN"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            tools:layout_editor_absoluteX="166dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/image8"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="23dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/text11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/artboard1" />
+</android.support.constraint.ConstraintLayout>

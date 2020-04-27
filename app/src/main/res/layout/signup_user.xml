@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/artboard1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/artboard1">
+
+    <TextView
+        android:id="@+id/text17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal|top"
+        android:text="@string/text17"
+        android:textColor="@color/color_ff000000"
+        android:textSize="35sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="131dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_centerInParent="true"
+        android:background="#ff858282"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="78dp" />
+
+    <EditText
+        android:id="@+id/user_edit_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="아이디"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="106dp" />
+
+    <EditText
+        android:id="@+id/user_edit_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="비밀번호입력"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <EditText
+        android:id="@+id/user_edit_passSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="비밀번호확인"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="238dp" />
+
+    <EditText
+        android:id="@+id/user_edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="이름"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <EditText
+        android:id="@+id/user_edit_phoneNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="전화번호"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <Button
+        android:id="@+id/user_btnFinish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="저장"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="565dp" />
+
+    <EditText
+        android:id="@+id/user_edit_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:text="주소"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+    <Button
+        android:id="@+id/user_btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="검색"
+        tools:layout_editor_absoluteX="267dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+
+</android.support.constraint.ConstraintLayout>

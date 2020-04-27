@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/artboard1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/artboard1">
+
+    <TextView
+        android:id="@+id/text16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal|top"
+        android:text="@string/text16"
+        android:textColor="@color/color_ff000000"
+        android:textSize="35sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="88dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_centerInParent="true"
+        android:background="#ff858282"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="78dp" />
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="220dp">
+
+        <TableRow
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:text="아이디 : "
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/user_edit_id"
+                android:hint="아이디를 입력하세요."
+                android:inputType="text"
+                android:textSize="15dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:text="비밀번호 : "
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/master_edit_pw"
+                android:hint="비밀번호를 입력하세요."
+                android:inputType="textPassword"
+                android:textSize="15dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:text="비밀번호 확인 : "
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/master_edit_passSign"
+                android:hint="다시 한 번 입력하세요."
+                android:inputType="textPassword"
+                android:textSize="15dp" />
+
+        </TableRow>
+        >
+
+        <TableRow
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:text="이름 : "
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/master_edit_name"
+                android:hint="이름을 입력하세요."
+                android:inputType="number"
+                android:textSize="15dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:text="전화번호 : "
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/master_edit_phoneNum"
+                android:hint="전화번호를 입력하세요."
+                android:inputType="text"
+                android:textSize="15dp" />
+
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/master_btnFinish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="join"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:text="완료"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="594dp" />
+
+
+</android.support.constraint.ConstraintLayout>
