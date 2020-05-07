@@ -43,55 +43,67 @@
             android:id="@+id/check1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="29dp"
             android:text="사용자"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="29dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
             android:id="@+id/check2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="69dp"
             android:text="관리자"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="29dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/idEditText"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:ems="10"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="61dp"
+            android:layout_marginBottom="64dp"
+            android:ems="11"
             android:hint="ID를 입력하세요."
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="38dp"
-            tools:layout_editor_absoluteY="91dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/pwEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/check1" />
 
         <EditText
             android:id="@+id/pwEditText"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_marginBottom="20dp"
+            android:ems="11"
             android:hint="Password를 입력하세요."
             android:inputType="textPassword"
-            tools:layout_editor_absoluteX="38dp"
-            tools:layout_editor_absoluteY="154dp" />
+            app:layout_constraintBottom_toTopOf="@+id/btnJoin"
+            app:layout_constraintStart_toStartOf="@+id/idEditText" />
 
         <Button
             android:id="@+id/btnJoin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="JOIN"
-            tools:layout_editor_absoluteX="38dp"
-            tools:layout_editor_absoluteY="220dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/btnLogin"
+            app:layout_constraintStart_toStartOf="@+id/pwEditText"
+            app:layout_constraintTop_toTopOf="@+id/btnLogin"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
             android:text="LOGIN"
-            tools:layout_editor_absoluteX="166dp"
-            tools:layout_editor_absoluteY="220dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/pwEditText" />
 
     </android.support.constraint.ConstraintLayout>
 

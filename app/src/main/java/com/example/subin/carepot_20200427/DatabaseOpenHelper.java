@@ -29,7 +29,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     }
 
     private void createTable(SQLiteDatabase db) {
-        String sql = "CREATE TABLE " + tableName + "(id text, pw text)";
+        String sql = "CREATE TABLE " + tableName + "(id text, pw text, name text, phoneNum text)";
         try {
             db.execSQL(sql);
         }catch (SQLException e){
@@ -37,11 +37,11 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insertUser(SQLiteDatabase db, String id, String pw) {
+    public void insertUser(SQLiteDatabase db, String id, String pw, String name, String phoneNum) {
         Log.i("tag", "회원가입을 했을때 실행함");
         db.beginTransaction();
         try {
-            String sql = "INSERT INTO " + tableName + "(id, pw)" + "values('" + id + "', '" + pw + "')";
+            String sql = "INSERT INTO " + tableName + "(id, pw, name, phoneNum)" + "values(' + id + ', ' + pw + ', ' + name + ', ' + phoneNum + ')";
             db.execSQL(sql); // select를 제외한 모든 SQL문장 실행
             db.setTransactionSuccessful();
         } catch (Exception e) {

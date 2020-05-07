@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class SignupActivity extends AppCompatActivity {
 
     int version = 1;
@@ -50,27 +51,41 @@ public class SignupActivity extends AppCompatActivity {
 
                 String id = edit_id.getText().toString();
                 String pw = edit_pw.getText().toString();
+
                 String passSign = edit_passSign.getText().toString();
                 String name = edit_name.getText().toString();
                 String phoneNum = edit_phoneNum.getText().toString();
 
-                if(id.length() == 0 || pw.length() == 0) {
-                    //아이디와 비밀번호는 필수 입력사항입니다.
-                    Toast toast = Toast.makeText(SignupActivity
-                            .this, "내용을 모두 작성해주세요.", Toast.LENGTH_SHORT);
+                if(id.length() == 0 || pw.length() == 0 || passSign.length() == 0 || name.length() == 0 || phoneNum.length() == 0) {
+                    //아이디와 비밀번호, 비밀번호확인, 이름, 전화번호는 필수 입력사항입니다.
+                    Toast toast = Toast.makeText(SignupActivity.this, "내용을 모두 작성해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
                     return;
                 }
 
                 sql = "SELECT id FROM "+ helper.tableName + " WHERE id = '" + id + "'";
                 cursor = database.rawQuery(sql, null); //select 실행
-
+  
+// 비밀번호 확인 체크 _ 아직 미해결...
+//                if(!pw.toString().equals(passSign.toString())){
+//                    Toast toast = Toast.makeText(SignupActivity.this, "비밀번호와 비밀번호 확인이 일치하지 않습니다. 다시 확인해 주세요.", Toast.LENGTH_SHORT);
+//                    pw = "";
+//                    passSign = "";
+//                }
+//                else{
+//                    helper.insertUser(database,id,pw, name, phoneNum);
+//                    Toast toast = Toast.makeText(SignupActivity.this, "가입이 완료되었습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//                }
                 if(cursor.getCount() != 0){ //테이블에 똑같은 id 내용이 있는지 확인
                     //존재하는 아이디입니다.
                     Toast toast = Toast.makeText(SignupActivity.this, "존재하는 아이디입니다.", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
-                    helper.insertUser(database,id,pw);
+                    helper.insertUser(database,id,pw, name, phoneNum);
                     Toast toast = Toast.makeText(SignupActivity.this, "가입이 완료되었습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
                     Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
