@@ -73,7 +73,7 @@ public class SignupActivity extends AppCompatActivity {
                     edit_id.setText("");
                 }
 
-                // 비밀번호 같은지 문자열 비교
+                // 비밀번호, 비밀번호확인 문자열 비교
                 else if(!edit_pw.getText().toString().equals(edit_passSign.getText().toString())){
                     Toast toast = Toast.makeText(SignupActivity.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT);
                     toast.show();
