@@ -93,7 +93,6 @@
                 android:textSize="15dp" />
 
         </TableRow>
-        >
 
         <TableRow
             android:layout_marginBottom="10dp"
