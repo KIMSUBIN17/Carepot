@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -54,8 +55,8 @@ public class SignupActivity extends AppCompatActivity {
                 String name = edit_name.getText().toString();
                 String phoneNum = edit_phoneNum.getText().toString();
 
-                if(id.length() == 0 || pw.length() == 0) {
-                    //아이디와 비밀번호는 필수 입력사항입니다.
+                if(id.length() == 0 || pw.length() == 0 || passSign.length() == 0 || name.length() == 0 || phoneNum.length() == 0) {
+                    //아이디와 비밀번호, 비밀번호확인, 이름, 전화번호는 필수 입력사항입니다.
                     Toast toast = Toast.makeText(SignupActivity
                             .this, "내용을 모두 작성해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
