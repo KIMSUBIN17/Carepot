@@ -74,18 +74,17 @@
         android:id="@+id/time_morning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="17dp"
         android:gravity="center_horizontal|top"
         android:text="@string/text7"
         android:textColor="@color/color_ff000000"
         android:textSize="38.5sp"
-        app:layout_constraintBottom_toBottomOf="@+id/artboard"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/time_afternoon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_morning"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.309" />
 
     <TextView
         android:id="@+id/time_afternoon"
@@ -163,8 +162,3 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_afternoon" />
 </android.support.constraint.ConstraintLayout>
-
-
-
-
-
