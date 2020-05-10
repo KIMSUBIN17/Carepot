@@ -85,7 +85,7 @@ public class Signup_master extends AppCompatActivity {
                     helper.insertUser_manager(database,id,pw,passSign,name,phoneNum);
                     Toast toast = Toast.makeText(Signup_master.this, "가입이 완료되었습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
-                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
                     finish();
                 }

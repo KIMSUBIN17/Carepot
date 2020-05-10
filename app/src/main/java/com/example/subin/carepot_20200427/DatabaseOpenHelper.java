@@ -14,9 +14,6 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String TABLE_MANAGERS = "managers";
     //public static final String TABLE_USERS = "users";
 
-    //public static final String ID = "id";
-    //public static final String PW = "pw";
-
     public DatabaseOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
