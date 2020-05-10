@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         btnJoin = (Button) findViewById(R.id.btnJoin);
         btnLogin = (Button) findViewById(R.id.btnLogin);
 
-        helper = new DatabaseOpenHelper(LoginActivity.this, DatabaseOpenHelper.tableName, null, version);
+        helper = new DatabaseOpenHelper(LoginActivity.this, DatabaseOpenHelper.TABLE_MANAGERS, null, version);
         database = helper.getWritableDatabase();
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                sql = "SELECT id FROM "+ helper.tableName + " WHERE id = '" + id + "'";
+                sql = "SELECT id FROM "+ helper.TABLE_MANAGERS + " WHERE id = '" + id + "'";
                 cursor = database.rawQuery(sql, null);
 
                 if(cursor.getCount() != 1){ //해당되는 테이블의 행 갯수 가져오기
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                sql = "SELECT pw FROM "+ helper.tableName + " WHERE id = '" + id + "'";
+                sql = "SELECT pw FROM "+ helper.TABLE_MANAGERS + " WHERE id = '" + id + "'";
                 cursor = database.rawQuery(sql, null);
 
                 cursor.moveToNext(); // 다음 행으로 이동
@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                 //회원가입 버튼 클릭
                 Toast toast = Toast.makeText(LoginActivity.this, "회원가입 화면으로 이동", Toast.LENGTH_SHORT);
                 toast.show();
-                Intent intent = new Intent(getApplicationContext(),SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Signup_master.class);
                 startActivity(intent);
                 //finish();
             }

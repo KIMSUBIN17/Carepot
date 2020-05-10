@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignupActivity" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+        <activity android:name=".Signup_master" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
 

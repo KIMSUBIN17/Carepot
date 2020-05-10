@@ -6,12 +6,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SignupActivity extends AppCompatActivity {
+public class Signup_master extends AppCompatActivity {
 
     int version = 1;
     DatabaseOpenHelper helper;
@@ -42,7 +41,7 @@ public class SignupActivity extends AppCompatActivity {
 
         btnFinish = (Button) findViewById(R.id.master_btnFinish);
 
-        helper = new DatabaseOpenHelper(SignupActivity.this, DatabaseOpenHelper.tableName, null, version);
+        helper = new DatabaseOpenHelper(Signup_master.this, DatabaseOpenHelper.TABLE_MANAGERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
 
         btnFinish.setOnClickListener(new View.OnClickListener(){
@@ -57,25 +56,25 @@ public class SignupActivity extends AppCompatActivity {
 
                 if(id.length() == 0 || pw.length() == 0 || passSign.length() == 0 || name.length() == 0 || phoneNum.length() == 0) {
                     //아이디와 비밀번호, 비밀번호확인, 이름, 전화번호는 필수 입력사항입니다.
-                    Toast toast = Toast.makeText(SignupActivity
+                    Toast toast = Toast.makeText(Signup_master
                             .this, "내용을 모두 작성해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
                     return;
                 }
 
-                sql = "SELECT id FROM "+ helper.tableName + " WHERE id = '" + id + "'";
+                sql = "SELECT id FROM "+ helper.TABLE_MANAGERS + " WHERE id = '" + id + "'";
                 cursor = database.rawQuery(sql, null); //select 실행
 
                 if(cursor.getCount() != 0){ //테이블에 똑같은 id 내용이 있는지 확인
                     //존재하는 아이디입니다.
-                    Toast toast = Toast.makeText(SignupActivity.this, "존재하는 아이디입니다.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(Signup_master.this, "존재하는 아이디입니다.", Toast.LENGTH_SHORT);
                     toast.show();
                     edit_id.setText("");
                 }
 
                 // 비밀번호, 비밀번호확인 문자열 비교
                 else if(!edit_pw.getText().toString().equals(edit_passSign.getText().toString())){
-                    Toast toast = Toast.makeText(SignupActivity.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(Signup_master.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT);
                     toast.show();
                     edit_pw.setText("");
                     edit_passSign.setText("");
@@ -83,8 +82,8 @@ public class SignupActivity extends AppCompatActivity {
                 }
 
                 else{
-                    helper.insertUser(database,id,pw);
-                    Toast toast = Toast.makeText(SignupActivity.this, "가입이 완료되었습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT);
+                    helper.insertUser_manager(database,id,pw,passSign,name,phoneNum);
+                    Toast toast = Toast.makeText(Signup_master.this, "가입이 완료되었습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
                     Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                     startActivity(intent);

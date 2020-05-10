@@ -11,7 +11,11 @@ import android.util.Log;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
-    public static final String tableName = "managers";
+    public static final String TABLE_MANAGERS = "managers";
+    //public static final String TABLE_USERS = "users";
+
+    //public static final String ID = "id";
+    //public static final String PW = "pw";
 
     public DatabaseOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -20,7 +24,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i("tag","생성 db가 없을때만 최초로 실행함");
-        createTable(db);
+        createTable_manager(db);
     }
 
     @Override
@@ -28,8 +32,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    private void createTable(SQLiteDatabase db) {
-        String sql = "CREATE TABLE " + tableName + "(id text, pw text)";
+    private void createTable_manager(SQLiteDatabase db) {
+        String sql = "CREATE TABLE " + TABLE_MANAGERS + "(id text, pw text, passSign text, name text, phoneNum text)";
         try {
             db.execSQL(sql);
         }catch (SQLException e){
@@ -37,11 +41,12 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insertUser(SQLiteDatabase db, String id, String pw) {
+    public void insertUser_manager(SQLiteDatabase db, String id, String pw, String passSign, String name, String phoneNum) {
         Log.i("tag", "회원가입을 했을때 실행함");
         db.beginTransaction();
         try {
-            String sql = "INSERT INTO " + tableName + "(id, pw)" + "values('" + id + "', '" + pw + "')";
+            String sql = "INSERT INTO " + TABLE_MANAGERS + "(id, pw, passSign, name, phoneNum)"
+                    + "values('" + id + "', '" + pw + "', '" + passSign + "', '" + name + "', '" + phoneNum + "')";
             db.execSQL(sql); // select를 제외한 모든 SQL문장 실행
             db.setTransactionSuccessful();
         } catch (Exception e) {
