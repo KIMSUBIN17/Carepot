@@ -12,7 +12,7 @@ import android.util.Log;
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_MANAGERS = "managers";
-    //public static final String TABLE_USERS = "users";
+    public static final String TABLE_USERS = "users";
 
     public DatabaseOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -22,6 +22,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.i("tag","생성 db가 없을때만 최초로 실행함");
         createTable_manager(db);
+        createTable_user(db);
     }
 
     @Override
@@ -29,10 +30,19 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    private void createTable_manager(SQLiteDatabase db) {
-        String sql = "CREATE TABLE " + TABLE_MANAGERS + "(id text, pw text, passSign text, name text, phoneNum text)";
+    public void createTable_manager(SQLiteDatabase db) {
+        String sql_m = "CREATE TABLE " + TABLE_MANAGERS + "(id text, pw text, passSign text, name text, phoneNum text)";
         try {
-            db.execSQL(sql);
+            db.execSQL(sql_m);
+        }catch (SQLException e){
+            Log.i("tag","테이블 생성 중 오류 발생");
+        }
+    }
+
+    public void createTable_user(SQLiteDatabase db) {
+        String sql_u = "CREATE TABLE " + TABLE_USERS + "(id text, pw text, passSign text, name text, phoneNum text, address text)";
+        try {
+            db.execSQL(sql_u);
         }catch (SQLException e){
             Log.i("tag","테이블 생성 중 오류 발생");
         }
@@ -42,9 +52,24 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         Log.i("tag", "회원가입을 했을때 실행함");
         db.beginTransaction();
         try {
-            String sql = "INSERT INTO " + TABLE_MANAGERS + "(id, pw, passSign, name, phoneNum)"
+            String sql_m = "INSERT INTO " + TABLE_MANAGERS + "(id, pw, passSign, name, phoneNum)"
                     + "values('" + id + "', '" + pw + "', '" + passSign + "', '" + name + "', '" + phoneNum + "')";
-            db.execSQL(sql); // select를 제외한 모든 SQL문장 실행
+            db.execSQL(sql_m); // select를 제외한 모든 SQL문장 실행
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public void insertUser_user(SQLiteDatabase db, String id, String pw, String passSign, String name, String phoneNum, String address) {
+        Log.i("tag", "회원가입을 했을때 실행함");
+        db.beginTransaction();
+        try {
+            String sql_u = "INSERT INTO " + TABLE_USERS + "(id, pw, passSign, name, phoneNum, address)"
+                    + "values('" + id + "', '" + pw + "', '" + passSign + "', '" + name + "', '" + phoneNum + "', '" + address + "')";
+            db.execSQL(sql_u); // select를 제외한 모든 SQL문장 실행
             db.setTransactionSuccessful();
         } catch (Exception e) {
             e.printStackTrace();

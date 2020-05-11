@@ -12,97 +12,135 @@
         android:id="@+id/text17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="110dp"
         android:gravity="center_horizontal|top"
         android:text="@string/text17"
         android:textColor="@color/color_ff000000"
         android:textSize="35sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="131dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/view3"
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
         android:background="#ff858282"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="78dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text17" />
 
     <EditText
         android:id="@+id/user_edit_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="182dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="아이디"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="106dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <EditText
         android:id="@+id/user_edit_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="182dp"
         android:ems="10"
         android:hint="비밀번호입력"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="174dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_edit_id" />
 
     <EditText
         android:id="@+id/user_edit_passSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="182dp"
         android:ems="10"
         android:hint="비밀번호확인"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="238dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_edit_pw" />
 
     <EditText
         android:id="@+id/user_edit_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="182dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="이름"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="306dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_edit_passSign" />
 
     <EditText
         android:id="@+id/user_edit_phoneNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="182dp"
         android:ems="10"
         android:inputType="phone"
         android:text="전화번호"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="375dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_edit_name" />
 
     <Button
         android:id="@+id/user_btnFinish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="162dp"
         android:text="저장"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="565dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_edit_address" />
 
     <EditText
         android:id="@+id/user_edit_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="38dp"
         android:ems="10"
         android:inputType="textPostalAddress"
         android:text="주소"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="441dp" />
+        app:layout_constraintEnd_toStartOf="@+id/user_btnSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_edit_phoneNum" />
 
     <Button
         android:id="@+id/user_btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="358dp"
+        android:layout_marginEnd="56dp"
         android:text="검색"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="441dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_edit_address"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
 
 </android.support.constraint.ConstraintLayout>
