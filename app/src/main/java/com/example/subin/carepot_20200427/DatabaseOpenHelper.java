@@ -9,7 +9,6 @@ import android.util.Log;
 
 //import androidx.annotation.Nullable;
 
-//test
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_MANAGERS = "managers";
