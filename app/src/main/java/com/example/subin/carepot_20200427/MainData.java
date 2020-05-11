@@ -12,7 +12,6 @@ public class MainData {
         this.tv_name = tv_name;
         this.tv_content = tv_content;
     }
-//test
 
     public int getIv_profile() {
         return iv_profile;
