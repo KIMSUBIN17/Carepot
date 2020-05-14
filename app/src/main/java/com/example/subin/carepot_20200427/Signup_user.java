@@ -24,7 +24,7 @@ public class Signup_user extends AppCompatActivity {
     EditText user_edit_address;
 
     Button btnFinish;
-
+    Button btnSearch;
 
     String sql;
     Cursor cursor;
@@ -42,6 +42,7 @@ public class Signup_user extends AppCompatActivity {
         user_edit_address = (EditText) findViewById(R.id.user_edit_address);
 
         btnFinish = (Button) findViewById(R.id.user_btnFinish);
+        btnSearch = (Button) findViewById(R.id.user_btnSearch);
 
         helper = new DatabaseOpenHelper(Signup_user.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
@@ -57,8 +58,8 @@ public class Signup_user extends AppCompatActivity {
                 String phoneNum = user_edit_phoneNum.getText().toString();
                 String address = user_edit_address.getText().toString();
 
-                if(id.length() == 0 || pw.length() == 0 || passSign.length() == 0 || name.length() == 0 || phoneNum.length() == 0) {
-                    //아이디와 비밀번호, 비밀번호확인, 이름, 전화번호는 필수 입력사항입니다.
+                if(id.length() == 0 || pw.length() == 0 || passSign.length() == 0 || name.length() == 0 || phoneNum.length() == 0 || address.length() == 0) {
+                    //아이디와 비밀번호, 비밀번호확인, 이름, 전화번호, 주소는 필수 입력사항입니다.
                     Toast toast = Toast.makeText(Signup_user
                             .this, "내용을 모두 작성해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
@@ -92,6 +93,16 @@ public class Signup_user extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
+            }
+        });
+
+        btnSearch.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapSearch.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
