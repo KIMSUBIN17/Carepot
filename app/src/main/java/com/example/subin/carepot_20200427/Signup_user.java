@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Signup_user extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class Signup_user extends AppCompatActivity {
     EditText user_edit_passSign;
     EditText user_edit_name;
     EditText user_edit_phoneNum;
-    EditText user_edit_address;
+    TextView user_text_address;
 
     Button btnFinish;
     Button btnSearch;
@@ -39,13 +40,18 @@ public class Signup_user extends AppCompatActivity {
         user_edit_passSign = (EditText) findViewById(R.id.user_edit_passSign);
         user_edit_name = (EditText) findViewById(R.id.user_edit_name);
         user_edit_phoneNum = (EditText) findViewById(R.id.user_edit_phoneNum);
-        user_edit_address = (EditText) findViewById(R.id.user_edit_address);
+        user_text_address = (TextView) findViewById(R.id.user_text_address);
 
         btnFinish = (Button) findViewById(R.id.user_btnFinish);
         btnSearch = (Button) findViewById(R.id.user_btnSearch);
 
         helper = new DatabaseOpenHelper(Signup_user.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
+
+        Intent address_intent = getIntent();
+        String address = address_intent.getStringExtra("address_value");
+        System.out.println(address);
+        user_text_address.setText(address);
 
         btnFinish.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -56,7 +62,7 @@ public class Signup_user extends AppCompatActivity {
                 String passSign = user_edit_passSign.getText().toString();
                 String name = user_edit_name.getText().toString();
                 String phoneNum = user_edit_phoneNum.getText().toString();
-                String address = user_edit_address.getText().toString();
+                String address = user_text_address.getText().toString();
 
                 if(id.length() == 0 || pw.length() == 0 || passSign.length() == 0 || name.length() == 0 || phoneNum.length() == 0 || address.length() == 0) {
                     //아이디와 비밀번호, 비밀번호확인, 이름, 전화번호, 주소는 필수 입력사항입니다.

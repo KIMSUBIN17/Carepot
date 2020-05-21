@@ -1,5 +1,6 @@
 package com.example.subin.carepot_20200427;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -23,20 +24,25 @@ public class MapSearch extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Geocoder geocoder;
-    private Button button;
+    private Button search_button;
+    private Button finish_button;
     private EditText editText;
+
+    public String address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_search);
         editText = (EditText) findViewById(R.id.editText);
-        button=(Button)findViewById(R.id.button);
+        search_button=(Button)findViewById(R.id.search_btn);
+        finish_button =(Button) findViewById(R.id.finish_btn);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
 
@@ -72,8 +78,8 @@ public class MapSearch extends FragmentActivity implements OnMapReadyCallback {
             }
         });
 
-        // 버튼 이벤트
-        button.setOnClickListener(new Button.OnClickListener(){
+        // 검색버튼 이벤트
+        search_button.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v){
                 String str=editText.getText().toString();
@@ -92,7 +98,7 @@ public class MapSearch extends FragmentActivity implements OnMapReadyCallback {
                 System.out.println(addressList.get(0).toString());
                 // 콤마를 기준으로 split
                 String []splitStr = addressList.get(0).toString().split(",");
-                String address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1,splitStr[0].length() - 2); // 주소
+                address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1,splitStr[0].length() - 2); // 주소
                 System.out.println(address);
 
                 String latitude = splitStr[10].substring(splitStr[10].indexOf("=") + 1); // 위도
@@ -118,5 +124,16 @@ public class MapSearch extends FragmentActivity implements OnMapReadyCallback {
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+        finish_button.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent address_intent = new Intent(getApplicationContext(),Signup_user.class);
+                address_intent.putExtra("address_value" ,address);
+                startActivity(address_intent);
+                finish();
+            }
+        });
     }
 }
