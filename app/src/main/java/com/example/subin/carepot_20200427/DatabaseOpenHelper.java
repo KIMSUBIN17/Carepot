@@ -1,6 +1,7 @@
 package com.example.subin.carepot_20200427;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -77,4 +78,15 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             db.endTransaction();
         }
     }
+
+    public String getUser(){
+        SQLiteDatabase db = getReadableDatabase();
+        String user_name =  "";
+
+        Cursor cursor = db.rawQuery("SELECT name FROM " + TABLE_USERS,null);
+        cursor.moveToFirst();
+            user_name = cursor.getString(0);
+            return  user_name;
+    }
+
 }
