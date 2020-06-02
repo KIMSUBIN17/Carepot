@@ -72,7 +72,7 @@ public class Signup_user extends AppCompatActivity {
                     return;
                 }
 
-                sql = "SELECT id FROM "+ helper.TABLE_USERS + " WHERE id = '" + id + "'";
+                sql = "SELECT _id FROM "+ helper.TABLE_USERS + " WHERE _id = '" + id + "'";
                 cursor = database.rawQuery(sql, null); //select 실행
 
                 if(cursor.getCount() != 0){ //테이블에 똑같은 id 내용이 있는지 확인
@@ -95,7 +95,7 @@ public class Signup_user extends AppCompatActivity {
                     helper.insertUser_user(database,id,pw,passSign,name,phoneNum,address);
                     Toast toast = Toast.makeText(Signup_user.this, "가입이 완료되었습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
-                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                    Intent intent = new Intent(getApplicationContext(), UserList.class);
                     startActivity(intent);
                     finish();
                 }

@@ -41,7 +41,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     }
 
     public void createTable_user(SQLiteDatabase db) {
-        String sql_u = "CREATE TABLE " + TABLE_USERS + "(id text, pw text, passSign text, name text, phoneNum text, address text)";
+        String sql_u = "CREATE TABLE " + TABLE_USERS + "(_id text, pw text, passSign text, name text, phoneNum text, address text)";
         try {
             db.execSQL(sql_u);
         }catch (SQLException e){
@@ -68,7 +68,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         Log.i("tag", "회원가입을 했을때 실행함");
         db.beginTransaction();
         try {
-            String sql_u = "INSERT INTO " + TABLE_USERS + "(id, pw, passSign, name, phoneNum, address)"
+            String sql_u = "INSERT INTO " + TABLE_USERS + "(_id, pw, passSign, name, phoneNum, address)"
                     + "values('" + id + "', '" + pw + "', '" + passSign + "', '" + name + "', '" + phoneNum + "', '" + address + "')";
             db.execSQL(sql_u); // select를 제외한 모든 SQL문장 실행
             db.setTransactionSuccessful();
@@ -79,7 +79,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public String getUser(){
+    public String get_Username(){
         SQLiteDatabase db = getReadableDatabase();
         String user_name =  "";
 
@@ -87,6 +87,14 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
             user_name = cursor.getString(0);
             return  user_name;
+    }
+
+    public Cursor getUser(){
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT _id,pw,passSign,name,phoneNum,address FROM " + TABLE_USERS,null);
+        return cursor;
+
     }
 
 }
