@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -20,7 +21,6 @@ public class UserList extends AppCompatActivity {
     DatabaseOpenHelper helper;
 
     Cursor cursor;
-    //String sql;
 
     Button btn_add;
 
@@ -32,18 +32,12 @@ public class UserList extends AppCompatActivity {
         btn_add = (Button) findViewById(R.id.btn_add);
         listView = (ListView) findViewById(R.id.user_list);
 
-        //user_RecyclerView = this.findViewById(R.id.recyclerView);
-        //user_RecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         helper = new DatabaseOpenHelper(UserList.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase();
 
-        //sql =  "SELECT * FROM "+ helper.TABLE_USERS;
-        //cursor = database.rawQuery(sql, null);
 
         cursor = helper.getUser();
         if(cursor != null){
-            //startManagingCursor(cursor);
             String[] columns = {"_id", "pw", "passSign", "name", "phoneNum", "address"};
             int [] reslds = {R.id.text01,R.id.text02,R.id.text03,R.id.text04,R.id.text05,R.id.text06};
 
@@ -59,6 +53,15 @@ public class UserList extends AppCompatActivity {
 
                 Toast toast = Toast.makeText(UserList.this, "사용자 회원가입 화면으로 이동", Toast.LENGTH_SHORT);
                 toast.show();
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
