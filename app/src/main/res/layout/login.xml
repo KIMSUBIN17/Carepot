@@ -7,37 +7,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/artboard1">
 
-    <TextView
-        android:id="@+id/text11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal|top"
-        android:text="@string/text11"
-        android:textColor="@color/color_ff7e7a7a"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_box"
-        app:layout_constraintEnd_toEndOf="@+id/artboard1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image8" />
-
     <android.support.constraint.ConstraintLayout
         android:id="@+id/login_box"
         android:layout_width="320dp"
         android:layout_height="300dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="62dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/login_box"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text11">
+        app:layout_constraintTop_toBottomOf="@+id/image8"
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/btnJoin"
@@ -47,6 +31,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="33dp"
             android:text="JOIN"
+            android:fontFamily="@font/nanumsquareround_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pwEditText" />
@@ -60,6 +45,7 @@
             android:layout_marginEnd="52dp"
             android:layout_marginBottom="33dp"
             android:text="LOGIN"
+            android:fontFamily="@font/nanumsquareround_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnJoin"
@@ -76,6 +62,7 @@
             android:layout_marginBottom="12dp"
             android:ems="10"
             android:hint="ID를 입력하세요."
+            android:fontFamily="@font/youth"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/pwEditText"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,6 +79,7 @@
             android:layout_marginEnd="52dp"
             android:ems="10"
             android:hint="Password를 입력하세요."
+            android:fontFamily="@font/youth"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -105,11 +93,9 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="200dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="200dp"
-        android:layout_marginBottom="23dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/text11"
+        android:src="@drawable/logo_back_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"

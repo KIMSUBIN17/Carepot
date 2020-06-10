@@ -28,6 +28,7 @@
             android:layout_marginEnd="110dp"
             android:gravity="center_horizontal|top"
             android:text="@string/text17"
+            android:fontFamily="@font/youth"
             android:textColor="@color/color_ff000000"
             android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,9 +40,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="48dp"
             android:layout_marginEnd="182dp"
             android:ems="10"
+            android:fontFamily="@font/youth"
             android:hint="사용자성명"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,35 +60,13 @@
             android:layout_marginEnd="182dp"
             android:ems="10"
             android:hint="사용자전화번호"
+            android:fontFamily="@font/youth"
             android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_edit_id" />
+            app:layout_constraintTop_toBottomOf="@+id/user_edit_name" />
 
-        <Button
-            android:id="@+id/user_btnFinish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="161dp"
-            android:layout_marginEnd="162dp"
-            android:layout_marginBottom="52dp"
-            android:text="저장"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/user_edit_caution"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:hint="유의사항"
-            android:inputType="textPersonName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guard_edit_phoneNum" />
 
         <EditText
             android:id="@+id/guard_edit_name"
@@ -96,6 +76,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="보호자성명"
+            android:fontFamily="@font/youth"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_edit_phoneNum" />
@@ -108,11 +89,73 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="보호자전화번호"
+            android:fontFamily="@font/youth"
             android:inputType="phone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guard_edit_name" />
+            app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="유의사항"
+            android:fontFamily="@font/youth"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText4" />
+
+        <!--
+        <TextView
+            android:id="@+id/user_text_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="38dp"
+            android:ems="10"
+            android:fontFamily="@font/youth"
+            android:hint="주소"
+            app:layout_constraintEnd_toStartOf="@+id/user_btnSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        -->
+        
+        <Button
+            android:id="@+id/user_btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="30dp"
+            android:text="검색"
+            android:fontFamily="@font/youth"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/user_text_address"
+            app:layout_constraintTop_toBottomOf="@+id/text17"
+            app:layout_constraintVertical_bias="0.666" />
+
+
+
+        <Button
+            android:id="@+id/user_btnFinish"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="161dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="162dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/selector"
+            android:text="저장"
+            android:fontFamily="@font/youth"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_btnSearch" />
 
 
     </android.support.constraint.ConstraintLayout>
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>

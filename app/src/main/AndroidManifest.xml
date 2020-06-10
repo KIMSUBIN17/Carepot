@@ -40,14 +40,14 @@
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-        </activity>
+      </activity>
+
         <activity android:name=".UserList" />
         <activity
             android:name=".Signup_master"
             android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
-        <activity android:name=".Login"/> >
-
-
+      
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity" />
     </application>
 
