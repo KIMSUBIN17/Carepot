@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         helper = new DatabaseOpenHelper(MainActivity.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
 
-        //username.setText(helper.get_Username());
+        username.setText(helper.get_Username());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
