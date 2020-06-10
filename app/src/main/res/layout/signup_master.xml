@@ -3,151 +3,150 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/artboard1"
+    android:id="@+id/artboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/artboard1">
+    android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/text16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="15dp"
-        android:gravity="center_horizontal|top"
-        android:text="@string/text16"
-        android:textColor="@color/color_ff000000"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/draw1"
+        android:layout_width="379dp"
+        android:layout_height="670dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/draw1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="15dp"
-        android:background="#ff858282"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text16" />
+        app:layout_constraintTop_toTopOf="parent">
 
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="337dp"
-        android:layout_marginTop="137dp"
-        android:layout_marginBottom="37dp"
+        <TextView
+            android:id="@+id/text16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="88dp"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text16"
+            android:textColor="@color/color_ff000000"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        app:layout_constraintBottom_toTopOf="@+id/master_btnFinish"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:layout_editor_absoluteX="-16dp">
 
-        <TableRow
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="337dp"
+            android:layout_marginBottom="37dp"
 
-            <TextView
-                android:text="아이디 : "
-                android:textSize="20dp" />
+            app:layout_constraintBottom_toTopOf="@+id/master_btnFinish"
+            tools:layout_editor_absoluteX="-16dp">
 
-            <EditText
-                android:id="@+id/user_edit_id"
-                android:hint="아이디를 입력하세요."
-                android:inputType="text"
-                android:textSize="15dp" />
+            <TableRow
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
 
-        </TableRow>
+                <TextView
+                    android:text="아이디 : "
+                    android:textSize="20dp" />
 
-        <TableRow
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
+                <EditText
+                    android:id="@+id/user_edit_id"
+                    android:hint="아이디를 입력하세요."
+                    android:inputType="text"
+                    android:textSize="15dp" />
 
-            <TextView
-                android:text="비밀번호 : "
-                android:textSize="20dp" />
+            </TableRow>
 
-            <EditText
-                android:id="@+id/master_edit_pw"
-                android:hint="비밀번호를 입력하세요."
-                android:inputType="textPassword"
-                android:textSize="15dp" />
+            <TableRow
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
 
-        </TableRow>
+                <TextView
+                    android:text="비밀번호 : "
+                    android:textSize="20dp" />
 
-        <TableRow
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
+                <EditText
+                    android:id="@+id/master_edit_pw"
+                    android:hint="비밀번호를 입력하세요."
+                    android:inputType="textPassword"
+                    android:textSize="15dp" />
 
-            <TextView
-                android:text="비밀번호 확인 : "
-                android:textSize="20dp" />
+            </TableRow>
 
-            <EditText
-                android:id="@+id/master_edit_passSign"
-                android:hint="다시 한 번 입력하세요."
-                android:inputType="textPassword"
-                android:textSize="15dp" />
+            <TableRow
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
 
-        </TableRow>
+                <TextView
+                    android:text="비밀번호 확인 : "
+                    android:textSize="20dp" />
 
-        <TableRow
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
+                <EditText
+                    android:id="@+id/master_edit_passSign"
+                    android:hint="다시 한 번 입력하세요."
+                    android:inputType="textPassword"
+                    android:textSize="15dp" />
 
-            <TextView
-                android:text="이름 : "
-                android:textSize="20dp" />
+            </TableRow>
 
-            <EditText
-                android:id="@+id/master_edit_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="이름을 입력하세요."
-                android:inputType="text"
-                android:textSize="15dp" />
+            <TableRow
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
 
-        </TableRow>
+                <TextView
+                    android:text="이름 : "
+                    android:textSize="20dp" />
 
-        <TableRow
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
+                <EditText
+                    android:id="@+id/master_edit_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="이름을 입력하세요."
+                    android:inputType="text"
+                    android:textSize="15dp" />
 
-            <TextView
-                android:text="전화번호 : "
-                android:textSize="20dp" />
+            </TableRow>
 
-            <EditText
-                android:id="@+id/master_edit_phoneNum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="전화번호를 입력하세요."
-                android:inputType="phone"
-                android:textSize="15dp" />
+            <TableRow
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal">
 
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:text="전화번호 : "
+                    android:textSize="20dp" />
 
-    <Button
-        android:id="@+id/master_btnFinish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginEnd="163dp"
-        android:layout_marginBottom="89dp"
-        android:onClick="join"
-        android:padding="0sp"
-        android:scaleType="centerCrop"
-        android:text="완료"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+                <EditText
+                    android:id="@+id/master_edit_phoneNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="전화번호를 입력하세요."
+                    android:inputType="phone"
+                    android:textSize="15dp" />
 
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/master_btnFinish"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginEnd="163dp"
+            android:layout_marginBottom="89dp"
+            android:onClick="join"
+            android:padding="0sp"
+            android:scaleType="centerCrop"
+            android:text="완료"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
