@@ -65,7 +65,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_edit_name" />
+            app:layout_constraintTop_toBottomOf="@+id/user_edit_id" />
 
 
         <EditText
@@ -92,10 +92,10 @@
             android:fontFamily="@font/youth"
             android:inputType="phone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3" />
+            app:layout_constraintTop_toBottomOf="@+id/guard_edit_name" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/user_edit_caution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -105,9 +105,9 @@
             android:fontFamily="@font/youth"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText4" />
+            app:layout_constraintTop_toBottomOf="@+id/guard_edit_phoneNum" />
 
-        <!--
+
         <TextView
             android:id="@+id/user_text_address"
             android:layout_width="wrap_content"
@@ -120,9 +120,8 @@
             android:hint="주소"
             app:layout_constraintEnd_toStartOf="@+id/user_btnSearch"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" />
-        -->
-        
+            app:layout_constraintTop_toBottomOf="@+id/user_edit_caution" />
+
         <Button
             android:id="@+id/user_btnSearch"
             android:layout_width="wrap_content"
@@ -158,4 +157,4 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
