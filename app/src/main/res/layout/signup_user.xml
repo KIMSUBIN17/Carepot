@@ -6,7 +6,7 @@
     android:id="@+id/artboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@drawable/gradient">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/draw1"
@@ -108,33 +108,20 @@
             app:layout_constraintTop_toBottomOf="@+id/guard_edit_phoneNum" />
 
 
-        <TextView
-            android:id="@+id/user_text_address"
+        <EditText
+            android:id="@+id/user_edit_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="90dp"
             android:ems="10"
+            android:hint="상세주소까지 입력해주세요."
             android:fontFamily="@font/youth"
-            android:hint="주소"
-            app:layout_constraintEnd_toStartOf="@+id/user_btnSearch"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/user_btnFinish"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_edit_caution" />
-
-        <Button
-            android:id="@+id/user_btnSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="38dp"
-            android:layout_marginEnd="30dp"
-            android:text="검색"
-            android:fontFamily="@font/youth"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/user_text_address"
-            app:layout_constraintTop_toBottomOf="@+id/text17"
-            app:layout_constraintVertical_bias="0.666" />
 
 
 
@@ -143,16 +130,14 @@
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:layout_marginStart="161dp"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="162dp"
             android:layout_marginBottom="50dp"
             android:background="@drawable/selector"
-            android:text="저장"
             android:fontFamily="@font/youth"
+            android:text="저장"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_btnSearch" />
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </android.support.constraint.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:id="@+id/artboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@drawable/gradient">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/draw1"
@@ -153,7 +153,6 @@
             android:padding="0sp"
             android:scaleType="centerCrop"
             android:text="완료"
-
             android:fontFamily="@font/youth"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

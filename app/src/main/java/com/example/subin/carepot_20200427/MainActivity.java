@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         helper = new DatabaseOpenHelper(MainActivity.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
 
-        //user_name.setText(helper.get_Username());
-        //user_phoneNum.setText(helper.get_UserphoneNum());
+        user_name.setText(helper.get_Username());
+        user_phoneNum.setText(helper.get_UserphoneNum());
         //user_address.setText(helper.get_Useraddress());
 
     }

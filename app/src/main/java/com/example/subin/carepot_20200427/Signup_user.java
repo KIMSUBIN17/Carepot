@@ -45,32 +45,11 @@ public class Signup_user extends AppCompatActivity {
         //user_address = (TextView) findViewById(R.id.user_text_address);
 
         btnFinish = (Button) findViewById(R.id.user_btnFinish);
-        btnSearch = (Button) findViewById(R.id.user_btnSearch);
 
         helper = new DatabaseOpenHelper(Signup_user.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
 
-        SharedPreferences sharedPreferences = getSharedPreferences(user_info,MODE_PRIVATE);
-        String user_id_key = sharedPreferences.getString("user_id_key","");
-        String user_phoneNum_key = sharedPreferences.getString("user_phoneNum_key","");
-        String guard_name_key = sharedPreferences.getString("guard_name_key","");
-        String guard_phoneNum_key = sharedPreferences.getString("guard_phoneNum_key","");
-        String user_caution_key = sharedPreferences.getString("user_caution_key","");
-
-        user_edit_id.setText(user_id_key);
-        user_edit_phoneNum.setText(user_phoneNum_key);
-        guard_edit_name.setText(guard_name_key);
-        guard_edit_phoneNum.setText(guard_phoneNum_key);
-        user_edit_caution.setText(user_caution_key);
-
-/*
-        Intent address_intent = getIntent();
-        String address = address_intent.getStringExtra("address_value");
-        System.out.println(address);
-        user_text_address.setText(address);
-*/
-
-        btnFinish.setOnClickListener(new View.OnClickListener(){
+          btnFinish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
@@ -111,42 +90,10 @@ public class Signup_user extends AppCompatActivity {
                     finish();
                 }
 
-                SharedPreferences sharedPreferences = getSharedPreferences(user_info,MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear();
-                editor.commit();
-
             }
         });
 
 
-        btnSearch.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-
-                SharedPreferences sharedPreferences = getSharedPreferences(user_info,MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                String user_id_key = user_edit_id.getText().toString();
-                String user_phoneNum_key = user_edit_phoneNum.getText().toString();
-                String guard_name_key = guard_edit_name.getText().toString();
-                String guard_phoneNum_key = guard_edit_phoneNum.getText().toString();
-                String user_caution_key = user_edit_caution.getText().toString();
-
-                editor.putString("user_id_key",user_id_key);
-                editor.putString("user_phoneNum_key",user_phoneNum_key);
-                editor.putString("guard_name_key",guard_name_key);
-                editor.putString("guard_phoneNum_key",guard_phoneNum_key);
-                editor.putString("user_caution_key",user_caution_key);
-
-                editor.commit();
-
-                Intent intent = new Intent(getApplicationContext(), MapSearch.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Carepot_20200427</string>
+    <string name="app_name">CarePot</string>
     <string name="text1">현재 설정 시간</string>
     <string name="text2">연락처</string>
     <string name="text3">주소</string>
