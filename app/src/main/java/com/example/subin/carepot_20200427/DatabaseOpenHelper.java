@@ -1,6 +1,7 @@
 package com.example.subin.carepot_20200427;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -118,4 +119,5 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+
 }

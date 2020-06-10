@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class UserList extends AppCompatActivity {
@@ -20,6 +22,13 @@ public class UserList extends AppCompatActivity {
     SQLiteDatabase database;
     DatabaseOpenHelper helper;
 
+    EditText user_edit_id;
+    EditText user_edit_phoneNum;
+    EditText guard_edit_name;
+    EditText guard_edit_phoneNum;
+    TextView user_edit_caution;
+
+    String sql;
     Cursor cursor;
 
     Button btn_add;
@@ -35,15 +44,16 @@ public class UserList extends AppCompatActivity {
         helper = new DatabaseOpenHelper(UserList.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase();
 
-
         cursor = helper.getUser();
         if(cursor != null){
             String[] columns = {"_id", "user_phoneNum", "guard_name", "guard_phoneNum", "user_caution"};
-            int [] reslds = {R.id.text01,R.id.text02,R.id.text03,R.id.text04,R.id.text05};
+            int [] reslds = {R.id.text_user_name,R.id.text_user_phoneNum,R.id.text_guard_name,R.id.text_guard_phoneNum,R.id.text_user_caution};
 
             SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,R.layout.list_item,cursor,columns,reslds,0);
             listView.setAdapter(adapter);
         }
+
+
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override

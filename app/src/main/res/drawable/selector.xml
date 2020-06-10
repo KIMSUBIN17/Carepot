@@ -4,8 +4,8 @@
         <!--pressed는 눌렀을 때 나오는 버튼-->
         <shape>
             <gradient
-                android:startColor="@color/pressed1"
-                android:endColor="@color/pressed2"
+                android:startColor="@color/color_ff858282"
+                android:endColor="@color/color_ff858282"
                 android:angle="270" /><!--angle은 각도 입니다~ 0 45 90 180 270 360-->
             <corners
                 android:radius="10dp" /><!-- 여기는 모서리 부분!-->
@@ -46,7 +46,7 @@
                 android:endColor="@color/default2"
                 android:angle="270" />
             <corners
-                android:radius="3dp" />
+                android:radius="10dp" />
             <padding
                 android:left="10dp"
                 android:top="10dp"

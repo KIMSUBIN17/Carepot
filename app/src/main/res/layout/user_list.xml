@@ -20,6 +20,20 @@
         android:layout_weight="1" />
     -->
 
+    <TextView
+        android:id="@+id/text17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="110dp"
+        android:fontFamily="@font/youth"
+        android:gravity="center_horizontal|top"
+        android:text="@string/text18"
+        android:textColor="@color/title"
+        android:textSize="35sp" />
+
+
     <ListView
         android:id="@+id/user_list"
         android:layout_width="match_parent"
@@ -27,6 +41,7 @@
 
     <Button
         android:id="@+id/btn_add"
+        android:background="@drawable/selector"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
