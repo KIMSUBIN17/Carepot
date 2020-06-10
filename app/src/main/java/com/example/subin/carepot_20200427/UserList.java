@@ -38,8 +38,8 @@ public class UserList extends AppCompatActivity {
 
         cursor = helper.getUser();
         if(cursor != null){
-            String[] columns = {"_id", "pw", "passSign", "name", "phoneNum", "address"};
-            int [] reslds = {R.id.text01,R.id.text02,R.id.text03,R.id.text04,R.id.text05,R.id.text06};
+            String[] columns = {"_id", "user_phoneNum", "guard_name", "guard_phoneNum", "user_caution"};
+            int [] reslds = {R.id.text01,R.id.text02,R.id.text03,R.id.text04,R.id.text05};
 
             SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,R.layout.list_item,cursor,columns,reslds,0);
             listView.setAdapter(adapter);

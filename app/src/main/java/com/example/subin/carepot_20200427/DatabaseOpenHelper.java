@@ -41,7 +41,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     }
 
     public void createTable_user(SQLiteDatabase db) {
-        String sql_u = "CREATE TABLE " + TABLE_USERS + "(_id text, pw text, passSign text, name text, phoneNum text, address text)";
+        String sql_u = "CREATE TABLE " + TABLE_USERS + "(_id text, user_phoneNum text, guard_name text, guard_phoneNum text, user_caution text)";
         try {
             db.execSQL(sql_u);
         }catch (SQLException e){
@@ -49,7 +49,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insertUser_manager(SQLiteDatabase db, String id, String pw, String passSign, String name, String phoneNum) {
+    public void insert_manager(SQLiteDatabase db, String id, String pw, String passSign, String name, String phoneNum) {
         Log.i("tag", "회원가입을 했을때 실행함");
         db.beginTransaction();
         try {
@@ -64,12 +64,12 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insertUser_user(SQLiteDatabase db, String id, String pw, String passSign, String name, String phoneNum, String address) {
+    public void insert_user(SQLiteDatabase db, String id, String user_phoneNum, String guard_name, String guard_phoneNum, String user_caution) {
         Log.i("tag", "회원가입을 했을때 실행함");
         db.beginTransaction();
         try {
-            String sql_u = "INSERT INTO " + TABLE_USERS + "(_id, pw, passSign, name, phoneNum, address)"
-                    + "values('" + id + "', '" + pw + "', '" + passSign + "', '" + name + "', '" + phoneNum + "', '" + address + "')";
+            String sql_u = "INSERT INTO " + TABLE_USERS + "(_id, user_phoneNum, guard_name, guard_phoneNum, user_caution)"
+                    + "values('" + id + "', '" + user_phoneNum + "', '" + guard_name + "', '" + guard_phoneNum + "', '" + user_caution + "')";
             db.execSQL(sql_u); // select를 제외한 모든 SQL문장 실행
             db.setTransactionSuccessful();
         } catch (Exception e) {
@@ -83,18 +83,40 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String user_name =  "";
 
-        Cursor cursor = db.rawQuery("SELECT name FROM " + TABLE_USERS,null);
+        Cursor cursor = db.rawQuery("SELECT _id FROM " + TABLE_USERS,null);
         cursor.moveToFirst();
             user_name = cursor.getString(0);
             return  user_name;
     }
 
+    public String get_UserphoneNum(){
+        SQLiteDatabase db = getReadableDatabase();
+        String user_phoneNum =  "";
+
+        Cursor cursor = db.rawQuery("SELECT user_phoneNum FROM " + TABLE_USERS,null);
+        cursor.moveToFirst();
+        user_phoneNum = cursor.getString(0);
+        return  user_phoneNum;
+    }
+
+    /*
+    public String get_Useraddress(){
+        SQLiteDatabase db = getReadableDatabase();
+        String user_address =  "";
+
+        Cursor cursor = db.rawQuery("SELECT user_address FROM " + TABLE_USERS,null);
+        cursor.moveToFirst();
+        user_address = cursor.getString(0);
+        return  user_address;
+    }
+     */
+
     public Cursor getUser(){
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT _id,pw,passSign,name,phoneNum,address FROM " + TABLE_USERS,null);
+        Cursor cursor = db.rawQuery("SELECT _id, user_phoneNum, guard_name, guard_phoneNum, user_caution FROM " + TABLE_USERS,null);
         return cursor;
 
     }
-
+    //test
 }

@@ -18,11 +18,12 @@ public class Signup_user extends AppCompatActivity {
     SQLiteDatabase database;
 
     EditText user_edit_id;
-    EditText user_edit_pw;
-    EditText user_edit_passSign;
-    EditText user_edit_name;
     EditText user_edit_phoneNum;
-    TextView user_text_address;
+    EditText guard_edit_name;
+    EditText guard_edit_phoneNum;
+    TextView user_edit_caution;
+
+    //String user_info = "information";
 
     Button btnFinish;
     Button btnSearch;
@@ -36,33 +37,41 @@ public class Signup_user extends AppCompatActivity {
         setContentView(R.layout.signup_user);
 
         user_edit_id = (EditText) findViewById(R.id.user_edit_id);
-        user_edit_name = (EditText) findViewById(R.id.user_edit_name);
         user_edit_phoneNum = (EditText) findViewById(R.id.user_edit_phoneNum);
-        user_text_address = (TextView) findViewById(R.id.user_text_address);
+        guard_edit_name = (EditText) findViewById(R.id.guard_edit_name);
+        guard_edit_phoneNum = (EditText) findViewById(R.id.user_edit_phoneNum);
+        user_edit_caution = (EditText) findViewById(R.id.user_edit_caution);
+        //user_address = (TextView) findViewById(R.id.user_text_address);
 
         btnFinish = (Button) findViewById(R.id.user_btnFinish);
-        btnSearch = (Button) findViewById(R.id.user_btnSearch);
+        //btnSearch = (Button) findViewById(R.id.user_btnSearch);
 
         helper = new DatabaseOpenHelper(Signup_user.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
+
+        /*입력값 저장후 다시 불러오기
+        SharedPreferences sharedPreferences = getSharedPreferences(user_info,0);
+        String value = sharedPreferences.getString("id_key","");
+        user_edit_id.setText(value);
 
         Intent address_intent = getIntent();
         String address = address_intent.getStringExtra("address_value");
         System.out.println(address);
         user_text_address.setText(address);
+*/
 
         btnFinish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
                 String id = user_edit_id.getText().toString();
-                String pw = user_edit_pw.getText().toString();
-                String passSign = user_edit_passSign.getText().toString();
-                String name = user_edit_name.getText().toString();
-                String phoneNum = user_edit_phoneNum.getText().toString();
-                String address = user_text_address.getText().toString();
+                String user_phoneNum = user_edit_phoneNum.getText().toString();
+                String guard_name = guard_edit_name.getText().toString();
+                String guard_phoneNum = guard_edit_phoneNum.getText().toString();
+                String user_caution = user_edit_caution.getText().toString();
+                //String address = user_text_address.getText().toString();
 
-                if(id.length() == 0 || pw.length() == 0 || passSign.length() == 0 || name.length() == 0 || phoneNum.length() == 0 || address.length() == 0) {
+                if(id.length() == 0 || user_phoneNum.length() == 0 || guard_name.length() == 0 || guard_phoneNum.length() == 0 || user_caution.length() == 0 ) {
                     //아이디와 비밀번호, 비밀번호확인, 이름, 전화번호, 주소는 필수 입력사항입니다.
                     Toast toast = Toast.makeText(Signup_user
                             .this, "내용을 모두 작성해주세요.", Toast.LENGTH_SHORT);
@@ -70,6 +79,7 @@ public class Signup_user extends AppCompatActivity {
                     return;
                 }
 
+                // DB 접근할때 속성값에 무조건! _id 필요 (지우지마세요!)
                 sql = "SELECT _id FROM "+ helper.TABLE_USERS + " WHERE _id = '" + id + "'";
                 cursor = database.rawQuery(sql, null); //select 실행
 
@@ -80,17 +90,8 @@ public class Signup_user extends AppCompatActivity {
                     user_edit_id.setText("");
                 }
 
-                // 비밀번호, 비밀번호확인 문자열 비교
-                else if(!user_edit_pw.getText().toString().equals(user_edit_passSign.getText().toString())){
-                    Toast toast = Toast.makeText(Signup_user.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT);
-                    toast.show();
-                    user_edit_pw.setText("");
-                    user_edit_passSign.setText("");
-                    return;
-                }
-
                 else{
-                    helper.insertUser_user(database,id,pw,passSign,name,phoneNum,address);
+                    helper.insert_user(database, id, user_phoneNum, guard_name, guard_phoneNum, user_caution);
                     Toast toast = Toast.makeText(Signup_user.this, "가입이 완료되었습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
                     Intent intent = new Intent(getApplicationContext(), UserList.class);
@@ -100,6 +101,7 @@ public class Signup_user extends AppCompatActivity {
             }
         });
 
+        /*
         btnSearch.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -109,5 +111,13 @@ public class Signup_user extends AppCompatActivity {
                 finish();
             }
         });
+        */
+    }
+
+    protected void onDestory(){
+        super.onDestroy();
+
+        //SharedPreferences sharedPreferences = getSharedPreferences(user_info, 0);
+        //SharedPreferences.Editor editor = sharedPreferences.edit
     }
 }

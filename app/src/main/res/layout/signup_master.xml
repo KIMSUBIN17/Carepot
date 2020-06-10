@@ -153,6 +153,7 @@
             android:padding="0sp"
             android:scaleType="centerCrop"
             android:text="완료"
+
             android:fontFamily="@font/youth"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
