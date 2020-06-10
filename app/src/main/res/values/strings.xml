@@ -1,15 +1,12 @@
 <resources>
     <string name="app_name">Carepot_20200427</string>
-
+    <string name="text1">현재 설정 시간</string>
+    <string name="text2">연락처</string>
+    <string name="text3">주소</string>
     <string name="text6">강현지 님</string>
     <string name="text7">07:00</string>
     <string name="text8">12:00</string>
     <string name="text9">21:00</string>
-
-
-    <string name="text11">오늘도 좋은 하루 보내세요:)</string>
-    <string name="text12">사용자</string>
-    <string name="text13">관리자</string>
 
 
     <string name="text16">관리자 회원가입</string>

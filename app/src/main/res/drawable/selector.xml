@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" >
+        <!--pressed는 눌렀을 때 나오는 버튼-->
+        <shape>
+            <gradient
+                android:startColor="@color/pressed1"
+                android:endColor="@color/pressed2"
+                android:angle="270" /><!--angle은 각도 입니다~ 0 45 90 180 270 360-->
+            <corners
+                android:radius="10dp" /><!-- 여기는 모서리 부분!-->
+            <padding
+                android:left="12dp"
+                android:top="12dp"
+                android:right="12dp"
+                android:bottom="12dp" /><!--padding은 margin이랑 비슷한데 안쪽 여백을 정해줍니다-->
+            <!--stroke
+                android:color="@color/stroke"
+                android:width="1pt"/--><!-- 여기는 테두리 부분!-->
+        </shape>
+    </item>
+    <!-- focused는 초점이 맞추어졌을 때 맨 밑은 그냥 화면에 보이는, 즉 버튼을 눌리지 않았을 때 보이는 버튼입니다.-->
+    <item android:state_focused="true" >
+        <shape>
+            <gradient
+                android:startColor="@color/focused1"
+                android:endColor="@color/focused2"
+                android:angle="90" />
+            <corners
+                android:radius="3dp" />
+            <padding
+                android:left="10dp"
+                android:top="10dp"
+                android:right="10dp"
+                android:bottom="10dp" />
+            <!--stroke
+                  android:color="@color/stroke"
+                  android:width="1pt"/-->
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#CDF87E"
+                android:endColor="@color/default2"
+                android:angle="270" />
+            <corners
+                android:radius="3dp" />
+            <padding
+                android:left="10dp"
+                android:top="10dp"
+                android:right="10dp"
+                android:bottom="10dp" />
+            <!--stroke
+                android:color="@color/stroke"
+                android:width="1pt"/-->
+        </shape>
+    </item>
+</selector>
+
+

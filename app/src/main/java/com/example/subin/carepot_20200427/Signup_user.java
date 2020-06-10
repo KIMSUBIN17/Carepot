@@ -36,8 +36,6 @@ public class Signup_user extends AppCompatActivity {
         setContentView(R.layout.signup_user);
 
         user_edit_id = (EditText) findViewById(R.id.user_edit_id);
-        user_edit_pw = (EditText) findViewById(R.id.user_edit_pw);
-        user_edit_passSign = (EditText) findViewById(R.id.user_edit_passSign);
         user_edit_name = (EditText) findViewById(R.id.user_edit_name);
         user_edit_phoneNum = (EditText) findViewById(R.id.user_edit_phoneNum);
         user_text_address = (TextView) findViewById(R.id.user_text_address);

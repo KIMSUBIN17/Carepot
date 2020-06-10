@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.clear_btn);
         username = (TextView)findViewById(R.id.user_name);
 
         helper = new DatabaseOpenHelper(MainActivity.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
 
-        username.setText(helper.get_Username());
+        //username.setText(helper.get_Username());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
