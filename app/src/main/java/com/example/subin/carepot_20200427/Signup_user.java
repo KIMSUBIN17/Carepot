@@ -1,6 +1,7 @@
 package com.example.subin.carepot_20200427;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ public class Signup_user extends AppCompatActivity {
     EditText guard_edit_phoneNum;
     TextView user_edit_caution;
 
-    //String user_info = "information";
+    String user_info = "information";
 
     Button btnFinish;
     Button btnSearch;
@@ -32,28 +33,37 @@ public class Signup_user extends AppCompatActivity {
     Cursor cursor;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_user);
 
         user_edit_id = (EditText) findViewById(R.id.user_edit_id);
         user_edit_phoneNum = (EditText) findViewById(R.id.user_edit_phoneNum);
         guard_edit_name = (EditText) findViewById(R.id.guard_edit_name);
-        guard_edit_phoneNum = (EditText) findViewById(R.id.user_edit_phoneNum);
+        guard_edit_phoneNum = (EditText) findViewById(R.id.guard_edit_phoneNum);
         user_edit_caution = (EditText) findViewById(R.id.user_edit_caution);
         //user_address = (TextView) findViewById(R.id.user_text_address);
 
         btnFinish = (Button) findViewById(R.id.user_btnFinish);
-        //btnSearch = (Button) findViewById(R.id.user_btnSearch);
+        btnSearch = (Button) findViewById(R.id.user_btnSearch);
 
         helper = new DatabaseOpenHelper(Signup_user.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
 
-        /*입력값 저장후 다시 불러오기
-        SharedPreferences sharedPreferences = getSharedPreferences(user_info,0);
-        String value = sharedPreferences.getString("id_key","");
-        user_edit_id.setText(value);
+        SharedPreferences sharedPreferences = getSharedPreferences(user_info,MODE_PRIVATE);
+        String user_id_key = sharedPreferences.getString("user_id_key","");
+        String user_phoneNum_key = sharedPreferences.getString("user_phoneNum_key","");
+        String guard_name_key = sharedPreferences.getString("guard_name_key","");
+        String guard_phoneNum_key = sharedPreferences.getString("guard_phoneNum_key","");
+        String user_caution_key = sharedPreferences.getString("user_caution_key","");
 
+        user_edit_id.setText(user_id_key);
+        user_edit_phoneNum.setText(user_phoneNum_key);
+        guard_edit_name.setText(guard_name_key);
+        guard_edit_phoneNum.setText(guard_phoneNum_key);
+        user_edit_caution.setText(user_caution_key);
+
+/*
         Intent address_intent = getIntent();
         String address = address_intent.getStringExtra("address_value");
         System.out.println(address);
@@ -79,6 +89,8 @@ public class Signup_user extends AppCompatActivity {
                     return;
                 }
 
+
+
                 // DB 접근할때 속성값에 무조건! _id 필요 (지우지마세요!)
                 sql = "SELECT _id FROM "+ helper.TABLE_USERS + " WHERE _id = '" + id + "'";
                 cursor = database.rawQuery(sql, null); //select 실행
@@ -98,26 +110,43 @@ public class Signup_user extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
+
+                SharedPreferences sharedPreferences = getSharedPreferences(user_info,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.commit();
+
             }
         });
 
-        /*
+
         btnSearch.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
+
+                SharedPreferences sharedPreferences = getSharedPreferences(user_info,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                String user_id_key = user_edit_id.getText().toString();
+                String user_phoneNum_key = user_edit_phoneNum.getText().toString();
+                String guard_name_key = guard_edit_name.getText().toString();
+                String guard_phoneNum_key = guard_edit_phoneNum.getText().toString();
+                String user_caution_key = user_edit_caution.getText().toString();
+
+                editor.putString("user_id_key",user_id_key);
+                editor.putString("user_phoneNum_key",user_phoneNum_key);
+                editor.putString("guard_name_key",guard_name_key);
+                editor.putString("guard_phoneNum_key",guard_phoneNum_key);
+                editor.putString("user_caution_key",user_caution_key);
+
+                editor.commit();
+
                 Intent intent = new Intent(getApplicationContext(), MapSearch.class);
                 startActivity(intent);
                 finish();
             }
         });
-        */
-    }
 
-    protected void onDestory(){
-        super.onDestroy();
-
-        //SharedPreferences sharedPreferences = getSharedPreferences(user_info, 0);
-        //SharedPreferences.Editor editor = sharedPreferences.edit
     }
 }
