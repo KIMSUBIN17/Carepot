@@ -10,8 +10,6 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/draw1"
-
-
         android:layout_width="370dp"
         android:layout_height="670dp"
         android:layout_marginLeft="20dp"
@@ -30,7 +28,7 @@
             android:layout_marginTop="32dp"
             android:src="@drawable/logo_back_gray"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
 
