@@ -132,7 +132,6 @@ public class MapSearch extends FragmentActivity implements OnMapReadyCallback {
                 Intent address_intent = new Intent(getApplicationContext(),Signup_user.class);
                 address_intent.putExtra("address_value" ,address);
                 startActivity(address_intent);
-                finish();
             }
         });
     }
