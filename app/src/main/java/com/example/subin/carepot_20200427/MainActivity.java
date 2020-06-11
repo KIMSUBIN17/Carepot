@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         user_phoneNum = (TextView)findViewById(R.id.text_phoneNum);
         user_address = (TextView)findViewById(R.id.text_address);
         guard_phoneNum = (TextView)findViewById(R.id.text_guard_phoneNum);
-        user_caution = (TextView)findViewById(R.id.text_user_caution);
+        user_caution = (TextView)findViewById(R.id.text_caution);
 
 
         helper = new DatabaseOpenHelper(MainActivity.this, DatabaseOpenHelper.TABLE_USERS, null, version);
@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         user_name.setText(helper.get_Username());
         user_phoneNum.setText(helper.get_UserphoneNum());
-        //user_address.setText(helper.get_Useraddress());
+        user_address.setText(helper.get_Useraddress());
+        user_caution.setText(helper.get_Usercaution());
+        guard_phoneNum.setText(helper.get_GuardphoneNum());
 
     }
 }
