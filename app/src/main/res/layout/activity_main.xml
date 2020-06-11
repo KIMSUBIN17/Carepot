@@ -12,36 +12,51 @@
         android:id="@+id/draw1"
         android:layout_width="370dp"
         android:layout_height="670dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/draw1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Button
+            android:id="@+id/clear_btn"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/selector"
+            android:fontFamily="@font/youth"
+            android:text="확인"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/text_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.274" />
+
         <ImageView
             android:id="@+id/image1"
-            android:layout_width="148.7dp"
-            android:layout_height="162.0dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/logo_back_gray"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
 
-            android:id="@+id/user_name"
+            android:id="@+id/text_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="284dp"
-            android:gravity="center_horizontal|top"
-            android:text="@string/text1"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="230dp"
             android:fontFamily="@font/youth"
-            android:textColor="@color/color_ff434343"
-            android:textSize="30sp"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text2"
+            android:textColor="@color/subtitle"
+            android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,53 +64,15 @@
             android:id="@+id/text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="428dp"
-            android:gravity="center_horizontal|top"
-            android:text="@string/text2"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="316dp"
+            android:layout_marginEnd="240dp"
             android:fontFamily="@font/youth"
-            android:textColor="@color/color_ff000000"
-            android:textSize="23.3sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="516dp"
             android:gravity="center_horizontal|top"
             android:text="@string/text3"
-            android:fontFamily="@font/youth"
-            android:textColor="@color/color_ff000000"
+            android:textColor="@color/subtitle"
             android:textSize="25sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_phoneNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="472dp"
-            android:gravity="center_horizontal|top"
-            android:fontFamily="@font/youth"
-            android:textColor="@color/color_ff434343"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="568dp"
-            android:gravity="center_horizontal|top"
-            android:fontFamily="@font/youth"
-            android:textColor="@color/color_ff434343"
-            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,76 +81,156 @@
             android:id="@+id/text_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="216dp"
-            android:gravity="center_horizontal|top"
-            android:text="@string/text6"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="170dp"
             android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text1"
             android:textColor="@color/color_ff000000"
-            android:textSize="40sp"
+            android:textSize="35sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text7"
+            android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="348dp"
-            android:gravity="center_horizontal|top"
-            android:text="@string/text7"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="216dp"
             android:fontFamily="@font/youth"
-            android:textColor="@color/color_ff000000"
-            android:textSize="40sp"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text4"
+            android:textColor="@color/subtitle"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text8"
+            android:id="@+id/text_phoneNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:textColor="@color/color_ff434343"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text2" />
+
+        <TextView
+            android:id="@+id/text_guard_phoneNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:textColor="@color/color_ff434343"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text3" />
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="475dp"
+            android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text5"
+            android:textColor="@color/subtitle"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:textColor="@color/color_ff434343"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text5" />
+
+        <TextView
+            android:id="@+id/text6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="550dp"
+            android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text6"
+            android:textColor="@color/subtitle"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_caution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:textColor="@color/color_ff7e7a7a"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text6" />
+
+        <TextView
+            android:id="@+id/text_morning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text20"
+            android:textColor="@color/color_ff000000"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_time" />
+
+
+        <TextView
+            android:id="@+id/text_afternoon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="140dp"
-            android:layout_marginTop="348dp"
-            android:gravity="center_horizontal|top"
-            android:text="@string/text8"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text21"
             android:textColor="@color/color_ff000000"
-            android:textSize="40sp"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/text_time" />
 
         <TextView
-            android:id="@+id/text9"
+            android:id="@+id/text_night"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="272dp"
-            android:layout_marginTop="348dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
-            android:gravity="center_horizontal|top"
-            android:text="@string/text9"
             android:fontFamily="@font/youth"
+            android:gravity="center_horizontal|top"
+            android:text="@string/text22"
             android:textColor="@color/color_ff000000"
-            android:textSize="40sp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <Button
-            android:id="@+id/clear_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="59dp"
-            android:layout_marginEnd="60dp"
-            android:text="확인"
-            android:fontFamily="@font/youth"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/image1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.147"
-            android:background="@drawable/selector"/>
+            app:layout_constraintTop_toBottomOf="@+id/text_time" />
 
 
     </android.support.constraint.ConstraintLayout>

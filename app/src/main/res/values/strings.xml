@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">CarePot</string>
-    <string name="text1">현재 설정 시간</string>
-    <string name="text2">연락처</string>
-    <string name="text3">주소</string>
-    <string name="text6">강현지 님</string>
-    <string name="text7">07:00</string>
-    <string name="text8">12:00</string>
-    <string name="text9">21:00</string>
+    <string name="text1"> 강현지</string>
+    <string name="text2">현재 설정 시간</string>
+    <string name="text3">개인연락처</string>
+    <string name="text4">보호자연락처</string>
+    <string name="text5">주소</string>
+    <string name="text6">유의사항</string>
+
+
+
+
+    <string name="text20">07:00</string>
+    <string name="text21">12:00</string>
+    <string name="text22">21:00</string>
 
 
     <string name="text16">관리자 회원가입</string>

@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     TextView user_name;
     TextView user_phoneNum;
     TextView user_address;
+    TextView guard_phoneNum;
+    TextView user_caution;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         user_name = (TextView)findViewById(R.id.text_name);
         user_phoneNum = (TextView)findViewById(R.id.text_phoneNum);
         user_address = (TextView)findViewById(R.id.text_address);
+        guard_phoneNum = (TextView)findViewById(R.id.text_guard_phoneNum);
+        user_caution = (TextView)findViewById(R.id.text_user_caution);
 
 
         helper = new DatabaseOpenHelper(MainActivity.this, DatabaseOpenHelper.TABLE_USERS, null, version);

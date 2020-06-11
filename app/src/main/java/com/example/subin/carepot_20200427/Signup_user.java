@@ -23,11 +23,12 @@ public class Signup_user extends AppCompatActivity {
     EditText guard_edit_name;
     EditText guard_edit_phoneNum;
     TextView user_edit_caution;
+    //TextView user_edit_address;
 
-    String user_info = "information";
+    //String user_info = "information";
 
     Button btnFinish;
-    Button btnSearch;
+    //Button btnSearch;
 
     String sql;
     Cursor cursor;
@@ -42,7 +43,7 @@ public class Signup_user extends AppCompatActivity {
         guard_edit_name = (EditText) findViewById(R.id.guard_edit_name);
         guard_edit_phoneNum = (EditText) findViewById(R.id.guard_edit_phoneNum);
         user_edit_caution = (EditText) findViewById(R.id.user_edit_caution);
-        //user_address = (TextView) findViewById(R.id.user_text_address);
+        //user_edit_address = (TextView) findViewById(R.id.user_edit_address);
 
         btnFinish = (Button) findViewById(R.id.user_btnFinish);
 
@@ -58,9 +59,9 @@ public class Signup_user extends AppCompatActivity {
                 String guard_name = guard_edit_name.getText().toString();
                 String guard_phoneNum = guard_edit_phoneNum.getText().toString();
                 String user_caution = user_edit_caution.getText().toString();
-                //String address = user_text_address.getText().toString();
+                //String user_address = user_edit_address.getText().toString();
 
-                if(id.length() == 0 || user_phoneNum.length() == 0 || guard_name.length() == 0 || guard_phoneNum.length() == 0 || user_caution.length() == 0 ) {
+                if(id.length() == 0 || user_phoneNum.length() == 0 || guard_name.length() == 0 || guard_phoneNum.length() == 0 || user_caution.length() == 0) {
                     //아이디와 비밀번호, 비밀번호확인, 이름, 전화번호, 주소는 필수 입력사항입니다.
                     Toast toast = Toast.makeText(Signup_user
                             .this, "내용을 모두 작성해주세요.", Toast.LENGTH_SHORT);
