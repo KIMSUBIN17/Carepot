@@ -52,39 +52,39 @@ public class Login extends AppCompatActivity {
 
                 if(id.length() == 0 || pw.length() == 0) {
                     //아이디와 비밀번호는 필수 입력사항입니다.
-                        Toast toast = Toast.makeText(Login.this, "아이디와 비밀번호는 필수 입력사항입니다.", Toast.LENGTH_SHORT);
-                        toast.show();
-                        return;
-                    }
-
-                    // 아이디 확인
-                    if(cursor.getCount() != 1){ //해당되는 테이블의 행 갯수 가져오기
-                        Toast toast = Toast.makeText(Login.this, "존재하지 않는 아이디입니다.", Toast.LENGTH_SHORT);
-                        toast.show();
-                        return;
-                    }
-
-                    sql = "SELECT pw FROM "+ helper.TABLE_MANAGERS + " WHERE id = '" + id + "'";
-                    cursor = database.rawQuery(sql, null);
-
-                    cursor.moveToNext(); // 다음 행으로 이동
-
-                    // 비밀번호 확인
-                    if(!pw.equals(cursor.getString(0))){
-                        Toast toast = Toast.makeText(Login.this, "비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT);
-                        toast.show();
-                        return;
-                    }
-                    cursor.close();
-
-                    // 사용자목록화면으로 이동
-                    Intent manager_intent = new Intent(getApplicationContext(), UserList.class);
-                    startActivity(manager_intent);
-                    finish();
-
-                    // 관리자로그인성공
-                    Toast toast = Toast.makeText(Login.this, "관리자로그인성공", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(Login.this, "아이디와 비밀번호는 필수 입력사항입니다.", Toast.LENGTH_SHORT);
                     toast.show();
+                    return;
+                }
+
+                // 아이디 확인
+                if(cursor.getCount() != 1){ //해당되는 테이블의 행 갯수 가져오기
+                    Toast toast = Toast.makeText(Login.this, "존재하지 않는 아이디입니다.", Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
+
+                sql = "SELECT pw FROM "+ helper.TABLE_MANAGERS + " WHERE id = '" + id + "'";
+                cursor = database.rawQuery(sql, null);
+
+                cursor.moveToNext(); // 다음 행으로 이동
+
+                // 비밀번호 확인
+                if(!pw.equals(cursor.getString(0))){
+                    Toast toast = Toast.makeText(Login.this, "비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
+                cursor.close();
+
+                // 사용자목록화면으로 이동
+                Intent manager_intent = new Intent(getApplicationContext(), UserList.class);
+                startActivity(manager_intent);
+                finish();
+
+                // 관리자로그인성공
+                Toast toast = Toast.makeText(Login.this, "관리자로그인성공", Toast.LENGTH_SHORT);
+                toast.show();
 
             }
         });
@@ -94,12 +94,12 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                    Intent intent = new Intent(getApplicationContext(), Signup_master.class);
-                    startActivity(intent);
-                    //finish();
+                Intent intent = new Intent(getApplicationContext(), Signup_master.class);
+                startActivity(intent);
+                //finish();
 
-                    Toast toast = Toast.makeText(Login.this, "관리자 회원가입 화면으로 이동", Toast.LENGTH_SHORT);
-                    toast.show();
+                Toast toast = Toast.makeText(Login.this, "관리자 회원가입 화면으로 이동", Toast.LENGTH_SHORT);
+                toast.show();
 
             }
         });
