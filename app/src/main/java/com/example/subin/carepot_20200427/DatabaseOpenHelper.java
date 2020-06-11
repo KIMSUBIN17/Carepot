@@ -82,6 +82,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
+
     public String get_Username(){
         SQLiteDatabase db = getReadableDatabase();
         String user_name =  "";
@@ -127,18 +128,19 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String user_caution =  "";
 
-        Cursor cursor = db.rawQuery("SELECT user_caution FROM " + TABLE_USERS,null);
-        cursor.moveToFirst();
-        user_caution = cursor.getString(0);
-        return  user_caution;
-    }
+      Cursor cursor = db.rawQuery("SELECT user_caution FROM " + TABLE_USERS,null);
+      cursor.moveToFirst();
+      user_caution = cursor.getString(0);
+      return  user_caution;
+  }
 
     public Cursor getUser(){
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT _id, user_phoneNum, guard_name, guard_phoneNum, user_caution, user_address FROM " + TABLE_USERS,null);
+        Cursor cursor = db.rawQuery("SELECT _id,user_caution FROM " + TABLE_USERS,null);
         return cursor;
 
     }
+
 
 }
