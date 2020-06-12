@@ -58,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
     Thread mWorkerThread = null;
     byte[] readBuffer;
     int readBufferPosition;
-    EditText mEditReceive;
+    TextView text_count;
+    //EditText mEditReceive;
+
 
     @Override
     protected void onDestroy() { //어플리케이션이 종료될때  호출되는 함수
@@ -82,10 +84,10 @@ public class MainActivity extends AppCompatActivity {
         user_address = (TextView)findViewById(R.id.text_address);
         guard_phoneNum = (TextView)findViewById(R.id.text_guard_phoneNum);
         user_caution = (TextView)findViewById(R.id.text_caution);
+        text_count = (TextView) findViewById(R.id.text_count);
 
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_clear = (Button) findViewById(R.id.btn_clear);
-
 
         helper = new DatabaseOpenHelper(MainActivity.this, DatabaseOpenHelper.TABLE_USERS, null, version);
         database = helper.getWritableDatabase(); //읽기,쓰기 모드로 DB오픈
@@ -147,6 +149,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /*
+    void receive(String msg){
+        msg += mStrDelimiter; // 문자열 종료 표시
+        try{
+            mInputStream.read(msg.getBytes());
+        }catch(Exception e){
+            // 문자열 전송 도중 오류가 발생한 경우
+            Toast.makeText(getApplicationContext(),"데이터 수신 중 오류가 발생했습니다.", Toast.LENGTH_LONG).show();
+            finish();
+        }
+    }
+*/
 
 
     void connectToSelectedDevice(String selectedDeviceName){ //소켓
@@ -176,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
         readBufferPosition = 0; // 버퍼 내 수신 문자 저장 위치
         readBuffer = new byte[1024]; // 수신 버퍼
 
+
         // 문자열 수신 쓰레드
         mWorkerThread = new Thread(new Runnable(){
             public void run(){
@@ -190,13 +205,14 @@ public class MainActivity extends AppCompatActivity {
                                 if(b == mCharDelimiter){
                                     byte[] encodedBytes = new byte[readBufferPosition];
                                     System.arraycopy(readBuffer, 0,encodedBytes, 0, encodedBytes.length);
-                                    final String data = new String(encodedBytes, "utf-8");
+                                    final String cnt = new String(encodedBytes, "utf-8");
                                     readBufferPosition = 0;
                                     handler.post(new Runnable(){
                                         @SuppressLint("SetTextI18n")
                                         public void run(){
                                             // 수신된 문자열 데이터에 대한 처리 작업
-                                            //mEditReceive.setText(mEditReceive.getText().toString()+ data + mStrDelimiter);
+                                            text_count.setText(null);
+                                            text_count.setText(text_count.getText().toString()+ cnt + mStrDelimiter);
                                         }
                                     });
                                 }
