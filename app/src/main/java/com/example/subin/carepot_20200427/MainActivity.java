@@ -8,10 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,8 +61,9 @@ public class MainActivity extends AppCompatActivity {
     byte[] readBuffer;
     int readBufferPosition;
     TextView text_count;
-    //EditText mEditReceive;
-
+    TextView text_morning;
+    TextView text_afternoon;
+    TextView text_night;
 
     @Override
     protected void onDestroy() { //어플리케이션이 종료될때  호출되는 함수
@@ -85,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
         guard_phoneNum = (TextView)findViewById(R.id.text_guard_phoneNum);
         user_caution = (TextView)findViewById(R.id.text_caution);
         text_count = (TextView) findViewById(R.id.text_count);
+        text_morning = (TextView) findViewById(R.id.text_morning);
+        text_afternoon = (TextView) findViewById(R.id.text_afternoon);
+        text_night = (TextView) findViewById(R.id.text_night);
 
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_clear = (Button) findViewById(R.id.btn_clear);
@@ -120,9 +126,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 sendData("0");
+                text_morning.setTextColor(Color.BLACK);
+                text_afternoon.setTextColor(Color.BLACK);
+                text_night.setTextColor(Color.BLACK);
+                text_count.setText("");
             }
         });
         checkBluetooth();
+
     }
 
     BluetoothDevice getDeviceFromBondedList(String name){ //해당 블루투스 장치 객체를 페어링 된 장치 목록에서 찾아내기
@@ -205,14 +216,38 @@ public class MainActivity extends AppCompatActivity {
                                 if(b == mCharDelimiter){
                                     byte[] encodedBytes = new byte[readBufferPosition];
                                     System.arraycopy(readBuffer, 0,encodedBytes, 0, encodedBytes.length);
-                                    final String cnt = new String(encodedBytes, "utf-8");
+                                    final String read_buffer = new String(encodedBytes, "utf-8");
                                     readBufferPosition = 0;
                                     handler.post(new Runnable(){
                                         @SuppressLint("SetTextI18n")
                                         public void run(){
                                             // 수신된 문자열 데이터에 대한 처리 작업
-                                            text_count.setText(null);
-                                            text_count.setText(text_count.getText().toString()+ cnt + mStrDelimiter);
+                                            //
+                                            for(int i = 0 ; i < read_buffer.length() ; i++){
+                                                char[] value = read_buffer.toCharArray();
+
+                                                if (value[i] == '1' || value[i] == '2' || value[i] == '3'){
+                                                    text_count.setText(null);
+                                                    text_count.setText(text_count.getText().toString()+ read_buffer + mStrDelimiter);
+                                                }
+                                                else if (value[i] == 'q')
+                                                {
+                                                    text_morning.setTextColor(Color.RED);
+                                                }
+                                                else if (value[i] == 'w')
+                                                {
+                                                    text_afternoon.setTextColor(Color.RED);
+                                                }
+                                                else  if (value[i] == 'e')
+                                                {
+                                                    text_night.setTextColor(Color.RED);
+                                                }
+                                                else
+                                                {
+                                                    Log.e("value","다른 값이 들어왔음");
+                                                }
+                                            }
+
                                         }
                                     });
                                 }
