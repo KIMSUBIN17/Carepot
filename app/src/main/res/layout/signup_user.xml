@@ -125,6 +125,7 @@
 
 
 
+
         <Button
             android:id="@+id/user_btnFinish"
             android:layout_width="150dp"
@@ -138,6 +139,47 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/user_time_morning"
+            android:layout_width="100dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="19dp"
+            android:ems="10"
+            android:fontFamily="@font/youth"
+            android:hint="오전시간"
+            android:inputType="time"
+            app:layout_constraintEnd_toStartOf="@+id/user_time_afternoon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_edit_address" />
+
+        <EditText
+            android:id="@+id/user_time_afternoon"
+            android:layout_width="100dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="24dp"
+            android:ems="10"
+            android:fontFamily="@font/youth"
+            android:hint="오후시간"
+            android:inputType="time"
+            app:layout_constraintEnd_toStartOf="@+id/user_time_night"
+            app:layout_constraintTop_toBottomOf="@+id/user_edit_address" />
+
+        <EditText
+            android:id="@+id/user_time_night"
+            android:layout_width="100dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="15dp"
+            android:ems="10"
+            android:fontFamily="@font/youth"
+            android:hint="저녁시간"
+            android:inputType="time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_edit_address" />
 
 
     </android.support.constraint.ConstraintLayout>
