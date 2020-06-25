@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     TextView user_address;
     TextView guard_phoneNum;
     TextView user_caution;
+    TextView user_morning;
+    TextView user_afternoon;
+    TextView user_night;
 
     Button btn_back;
     Button btn_clear;
@@ -61,9 +64,7 @@ public class MainActivity extends AppCompatActivity {
     byte[] readBuffer;
     int readBufferPosition;
     TextView text_count;
-    TextView text_morning;
-    TextView text_afternoon;
-    TextView text_night;
+
 
     @Override
     protected void onDestroy() { //어플리케이션이 종료될때  호출되는 함수
@@ -88,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
         guard_phoneNum = (TextView)findViewById(R.id.text_guard_phoneNum);
         user_caution = (TextView)findViewById(R.id.text_caution);
         text_count = (TextView) findViewById(R.id.text_count);
-        text_morning = (TextView) findViewById(R.id.text_morning);
-        text_afternoon = (TextView) findViewById(R.id.text_afternoon);
-        text_night = (TextView) findViewById(R.id.text_night);
+        user_morning = (TextView) findViewById(R.id.text_morning);
+        user_afternoon = (TextView) findViewById(R.id.text_afternoon);
+        user_night = (TextView) findViewById(R.id.text_night);
 
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_clear = (Button) findViewById(R.id.btn_clear);
@@ -103,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
         user_address.setText(helper.get_Useraddress());
         user_caution.setText(helper.get_Usercaution());
         guard_phoneNum.setText(helper.get_GuardphoneNum());
+        user_morning.setText(helper.get_Usermorning());
+        user_afternoon.setText(helper.get_Userafternoon());
+        user_night.setText(helper.get_Usernight());
 
 
         //사용자 목록으로 돌아가는 버튼
@@ -126,9 +130,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 sendData("0");
-                text_morning.setTextColor(Color.BLACK);
-                text_afternoon.setTextColor(Color.BLACK);
-                text_night.setTextColor(Color.BLACK);
+                user_morning.setTextColor(Color.BLACK);
+                user_afternoon.setTextColor(Color.BLACK);
+                user_night.setTextColor(Color.BLACK);
                 text_count.setText("");
             }
         });
@@ -232,15 +236,15 @@ public class MainActivity extends AppCompatActivity {
                                                 }
                                                 else if (value[i] == 'q')
                                                 {
-                                                    text_morning.setTextColor(Color.RED);
+                                                    user_morning.setTextColor(Color.RED);
                                                 }
                                                 else if (value[i] == 'w')
                                                 {
-                                                    text_afternoon.setTextColor(Color.RED);
+                                                    user_afternoon.setTextColor(Color.RED);
                                                 }
                                                 else  if (value[i] == 'e')
                                                 {
-                                                    text_night.setTextColor(Color.RED);
+                                                    user_night.setTextColor(Color.RED);
                                                 }
                                                 else
                                                 {
