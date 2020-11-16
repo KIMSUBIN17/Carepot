@@ -65,8 +65,8 @@ public class Signup_user extends AppCompatActivity {
                 String user_caution = user_edit_caution.getText().toString();
                 String user_address = user_edit_address.getText().toString();
                 String user_morning = user_time_morning.getText().toString();
-                String user_afternoon = user_time_morning.getText().toString();
-                String user_night = user_time_morning.getText().toString();
+                String user_afternoon = user_time_afternoon.getText().toString();
+                String user_night = user_time_night.getText().toString();
 
                 if(id.length() == 0 || user_phoneNum.length() == 0 || guard_name.length() == 0 || guard_phoneNum.length() == 0 ||
                         user_caution.length() == 0 || user_address.length() == 0 || user_morning.length() == 0 || user_afternoon.length() == 0 || user_night.length() == 0) {

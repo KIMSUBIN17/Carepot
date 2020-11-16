@@ -133,7 +133,7 @@
             android:layout_marginStart="161dp"
             android:layout_marginEnd="162dp"
             android:layout_marginBottom="50dp"
-            android:background="@drawable/selector"
+            android:background="@color/color_ff858282"
             android:fontFamily="@font/youth"
             android:text="저장"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -6,7 +6,7 @@
     android:id="@+id/artboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient">
+    android:background="#1E808080">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/draw1"
@@ -26,9 +26,10 @@
             android:layout_height="50dp"
             android:layout_marginStart="80dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector2"
             android:fontFamily="@font/youth"
             android:text="확인"
+            android:textSize="17dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_back"
             app:layout_constraintStart_toStartOf="parent" />
@@ -39,9 +40,10 @@
             android:layout_height="50dp"
             android:layout_marginEnd="80dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector2"
             android:fontFamily="@font/youth"
             android:text="목록"
+            android:textSize="17dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_clear" />
@@ -247,10 +249,10 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="72dp"
+            android:layout_marginStart="82dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="41dp"
-            android:text="횟수 : "
+            android:text="누적횟수 : "
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/text_afternoon"
             app:layout_constraintStart_toEndOf="@+id/text_name"
@@ -263,7 +265,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="145dp"
-            android:layout_marginEnd="103dp"
+            android:layout_marginEnd="60dp"
             android:layout_marginBottom="470dp"
             android:text="0"
             android:textSize="25sp"

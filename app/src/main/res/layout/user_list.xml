@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient">
+    android:background="#1E808080">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/draw1"
@@ -71,9 +71,10 @@
             android:layout_marginEnd="117dp"
             android:layout_marginBottom="60dp"
             android:layout_weight="1"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector2"
             android:fontFamily="@font/youth"
             android:text="추가"
+            android:textSize="17dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
